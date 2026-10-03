@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>JavaScript Practice</h2>
+
+    <h3>1. typeof</h3>
+    <button onclick="checktypes()">Check Types</button>
+    <p id="typeresult"></p>
+
+    <h3>2. string() and number()</h3>
+    <input id="num" placeholder="enter a number">
+    <button onclick="tostring()">String</button>
+    <button onclick="tonumber()">Number</button>
+    <p id="convert"></p>
+
+    <h3>3. search() and replace()</h3>
+    <input id="find" placeholder="word to find">
+    <input id="replace" placeholder="replace with">
+    <button onclick="searchword()">Search</button>
+    <button onclick="replaceword()">Replace</button>
+    <p id="word">the drogon is flying!</p>
+    <h3>4. try and catch</h3>
+    <input id="divide" placeholder="enter a number">
+    <button onclick="calculate()">divide 100</button>
+    <p id="error"></p>
+    <script>
+        function checktypes() {
+            document.getElementById("typeresult").innnerHTML = typeof 42+ "<br>" + typeof "alex" +"<br>" + typeof true; 
+        }
+        function tostring() {
+            var x = document.getElementById("num").value;
+            document.getElementById("convert").innerHTML = String(x) + " - " + typeof String(x);
+        }
+        function toNumber() {
+            var x = document.getElementById("num").value;
+            document.getElementById("convert").innerHTML = Number(x) + " - " + typeof Number(x);
+        }
+        function searchword() {
+            var word = document.getElementById("find").value;
+            var sentence = "the dragon is flyingg!";
+            document.getElementById("word").innerHTML = "position:" + sentence.search(word);
+        }
+        function replaceword() {
+            var word = document.getElementById("find").value;
+            var newword = document.getElementById("replace").value;
+            var sentence = "the dragon is flyingg!";
+            document.getElementById("word").innerHTML = sentence.replace(word, newword);
+        }
+
+        function calculate() {
+            try {
+                var x = document.getElementById("divide").value;
+
+                if (x == "" || isNaN(x)) throw "please enter a number";
+
+                document.getElementById("error").innerHTML = 100 / number (x);
+            } catch (err) {
+                document.getElementById("error").innerHTML = "Error; " + err;
+            }
+        }
+    </script>
+
+</body>
+</html>
