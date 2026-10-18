@@ -1,0 +1,20 @@
+let order = {
+    item: 'Pizza',
+    price: 5,
+    shop: 'Ahmad bahi ka pizza',
+};
+
+let jsonTEXT = JSON.stringify(order);
+
+let loadedOrder = JSON.parse(jsonTEXT);
+
+setTimeout(function() {
+    document.getElementById('status').innerHTML = 'Kitchen is preparing...';
+}, 1000);
+
+async function startDelivery() {
+    await delay(3000);
+    document.getElementById('status').innerHTML = 'out for delivery...';
+    await delay(2000);
+    document.getElementById('status').innerHTML = 'delivery has arrived!';
+}
