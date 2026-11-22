@@ -1,0 +1,38 @@
+<div>click on the dice...</div>
+<div id="dice" onclick="stopstart()"></div>
+body{
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+#dice {
+    font-size: 320px;
+}
+
+#dice-hover {
+    cursor: pointer;
+}
+
+ver dices = ["&#9856;", "&#9857;", "&#9858;", "&#9859;", "&#9860;", "&#9861;"];
+var stopped = true;
+
+function chance() {
+    var random = Math.floor(Math.random() * 6);
+    document.getElementById("dice").innerHTML = dices[random];
+}
+
+function stopstart() {
+    if (stopped) {
+        t= setinterval(chance, 100);
+    } else {
+        clearinterval(t);
+    stopped = true;
+}
+    }
+
+    window.onload = function() {
+        dice = document.getElementById("dice");
+        stopstart();
+    }
+
+
